@@ -27,18 +27,18 @@ A solution to the KenKen problem in this program is represented by a map of doma
 
 Here is a pseudocode that the solveKenKen function in the code is based on:
 1. solve(problem):
-2. &nbsp;If every domain in the problem has exactly one value:
-3. &nbsp;&nbsp;Return those domains as the solution
-4. &nbsp;Use the AC-3 algorithm to reduce the domains based on constraints
-5. &nbsp;Select a variable x whose domain has more than one value, choosing the smallest such domain
-6. &nbsp;For each value x\_value in the domain of x:
-7. &nbsp;&nbsp;Create a new problem where x’s domain is restricted to just x\_value
-8. &nbsp;&nbsp;If this new problem is inconsistent:
-9. &nbsp;&nbsp;&nbsp;Skip to the next x\_value
-10. &nbsp;&nbsp;Otherwise, call solve recursively on the new problem
-11. &nbsp;&nbsp;If the recursive call returns a solution:
-12. &nbsp;&nbsp;&nbsp;Return that solution
-13. &nbsp;If no values work, return None
+2. &nbsp;&nbsp;&nbsp;&nbsp;If every domain in the problem has exactly one value:
+3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return those domains as the solution
+4. &nbsp;&nbsp;&nbsp;&nbsp;Use the AC-3 algorithm to reduce the domains based on constraints
+5. &nbsp;&nbsp;&nbsp;&nbsp;Select a variable x whose domain has more than one value, choosing the smallest such domain
+6. &nbsp;&nbsp;&nbsp;&nbsp;For each value x\_value in the domain of x:
+7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new problem where x’s domain is restricted to just x\_value
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If this new problem is inconsistent:
+9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skip to the next x\_value
+10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise, call solve recursively on the new problem
+11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the recursive call returns a solution:
+12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return that solution
+13. &nbsp;&nbsp;&nbsp;&nbsp;If no values work, return None
 
 
 ### AC-3 algorithm
@@ -47,9 +47,9 @@ Here is a pseudocode that the solveKenKen function in the code is based on:
 A detailed description of the AC-3 algorithm can be found on [Wikipedia](https://en.wikipedia.org/wiki/AC-3\_algorithm). In short, it represents the CSP as a directed graph, where nodes are constrained variables and arcs represent constraints between these variables. Once this graph is created, the algorithm works as follows:
 1. Initialize a queue that contains all arcs
 2. While the queue is not empty:
-3. &nbsp; Pop an arc (Xi, Xj)
-4. &nbsp; From Xi's domain, remove all values for which there are no values in Xj's domain that satisfy the constraint
-5. &nbsp; If any value has been removed from Xi's domain, add all arcs (Xk, Xi), where (k != j), to the queue
+3. &nbsp;&nbsp;&nbsp;&nbsp;Pop an arc (Xi, Xj)
+4. &nbsp;&nbsp;&nbsp;&nbsp;From Xi's domain, remove all values for which there are no values in Xj's domain that satisfy the constraint
+5. &nbsp;&nbsp;&nbsp;&nbsp;If any value has been removed from Xi's domain, add all arcs (Xk, Xi), where (k != j), to the queue
 
 
 This implementation utilizes three types of arcs:
