@@ -26,6 +26,6 @@ The user can also define and solve new examples by typing `solveAndPrint $ creat
 ## Main function
 
 
-The main function just calls `solveAndPrint solvable4x4`. It is intended for a very quick demo of the program solving a KenKen problem. 
+The main function can be called simply by `main`. It just calls `solveAndPrint solvable4x4`. This function is intended for a very quick demo of the program solving a KenKen problem. 
 
 
