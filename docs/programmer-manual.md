@@ -202,7 +202,7 @@ Propagate constraints to reduce domains using the AC-3 algorithm:
 `propagateDomains :: [Arc] -> [Arc] -> Domains -> Maybe Domains`
 
 
-Reduce the domains for the CSP using the AC-3 algorithm and return a new CSP with the resuced domains:
+Reduce the domains for the CSP using the AC-3 algorithm and return a new CSP with the reduced domains:
 
 `ac3 :: KenKenCSP -> Maybe KenKenCSP`
 
